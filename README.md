@@ -11,12 +11,12 @@ on selected devices:
 * Raspberry Pi 4 B + Movidius neural compute stick
 * Raspberry Pi 4 B + Movidius MV224
 
-|   Model name   | Image shape | COCO mAP (from paper) | FPS (device) |
-|:--------------:|:-----------:|:---------------------:|:------------:|
-| YOLOv3-320     |   320x320   |          51.5         |              |
-| YOLOv3-416     |   416x416   |          55.3         |              |
-| YOLOv3-608     |   608x608   |          57.9         |              |
-| EfficientDet-0 |   512x512   |          32.4         |              |
-| EfficientDet-1 |   640x640   |          38.3         |              |
-| EfficientDet-2 |   768x768   |          41.1         |              |
-| EfficientDet-3 |   896x896   |          44.3         |              |
+| Model<br>name | Image<br>shape | COCO mAP<br>(from paper) | FPS<br>(device) |
+|:--------------:|:--------------:|:------------------------:|:---------------:|
+| YOLOv3-320 | 320x320 | 51.5 |  |
+| YOLOv3-416 | 416x416 | 55.3 |  |
+| YOLOv3-608 | 608x608 | 57.9 |  |
+| EfficientDet-0 | 512x512 | 32.4 |  |
+| EfficientDet-1 | 640x640 | 38.3 |  |
+| EfficientDet-2 | 768x768 | 41.1 |  |
+| EfficientDet-3 | 896x896 | 44.3 |  |
