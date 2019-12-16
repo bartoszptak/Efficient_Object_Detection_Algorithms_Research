@@ -11,19 +11,19 @@ on selected devices:
 * Raspberry Pi 4 B + Movidius neural compute stick
 * Raspberry Pi 4 B + Movidius MV224
 
-| Model<br>name | Image<br>shape | COCO mAP<br>(from authors) | FPS<br>(device) |
-|:--------------:|:--------------:|:------------------------:|:---------------:|
-| YOLOv3-320 | 320x320 | 51.5 |  |
-| YOLOv3-416 | 416x416 | 55.3 |  |
-| YOLOv3-608 | 608x608 | 57.9 |  |
-| EfficientDet-0 | 512x512 | 32.4 |  |
-| EfficientDet-1 | 640x640 | 38.3 |  |
-| EfficientDet-2 | 768x768 | 41.1 |  |
-| EfficientDet-3 | 896x896 | 44.3 |  |
+| Model<br>name | Image<br>shape | COCO mAP<br>(from authors) | Model<br>GFLOPS | FPS<br>(device) |
+|:--------------:|:--------------:|:--------------------------:|:---------------:|:---------------:|
+| YOLOv3-320 | 320x320 | 51.5 | 39.19 |  |
+| YOLOv3-416 | 416x416 | 55.3 | 66.23 |  |
+| YOLOv3-608 | 608x608 | 57.9 | 141.48 |  |
+| EfficientDet-0 | 512x512 | 32.4 |  |  |
+| EfficientDet-1 | 640x640 | 38.3 |  |  |
+| EfficientDet-2 | 768x768 | 41.1 |  |  |
+| EfficientDet-3 | 896x896 | 44.3 |  |  |
 
 # TODO
 - [x] Create a script to check the FPS on the selected video
-- [ ] Create a script to calculate FLOPS
+- [x] Create a script to calculate FLOPS
 - [ ] Creation of a benchmark script
 
 - [x] Starting YOLOv3 with cv2.dnn

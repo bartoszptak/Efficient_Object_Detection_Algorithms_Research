@@ -3,6 +3,8 @@ import numpy as np
 import cv2
 from imutils.video import FPS
 
+def FLOPS_bench(net, size):
+    return net.getFLOPS([1, 3, size, size])/10**9
 
 def FPS_bench(cap, net, size):
     fps = FPS().start()

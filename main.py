@@ -4,7 +4,7 @@ import glob
 import click
 import cv2
 
-from bench_utils import FPS_bench#, FLOPS_bench
+from bench_utils import FPS_bench, FLOPS_bench
 
 
 def load_model(model_type, model_path):
@@ -26,9 +26,9 @@ def select_destination_engine(net, engine):
     if engine == 'cpu':
         print('[LOGS] Set preferable target engine to CPU')
         net.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
-    # elif engine == 'gpu':
-    #     print('[LOGS] Set preferable target engine to GPU')
-    #     net.setPreferableTarget(cv2.dnn.DNN_TARGET_OPENCL)
+    elif engine == 'gpu':
+        print('[LOGS] Set preferable target engine to GPU')
+        net.setPreferableTarget(cv2.dnn.DNN_TARGET_OPENCL)
     # elif engine == 'jetson':
     #     print('[LOGS] Set preferable target engine to Jetson (GPU FP16)')
     #     net.setPreferableTarget(cv2.dnn.DNN_TARGET_OPENCL_FP16)
@@ -52,7 +52,12 @@ def main(model_type, model_path, size, engine):
     size = int(size)
 
     net = load_model(model_type, model_path)
+    print(f'[LOGS] Set network size to {size}x{size}x3')
     net = select_destination_engine(net, engine)
+
+    print('[LOGS] Calculate GFLOPS')
+    flops = FLOPS_bench(net, size)
+    print("[LOGS] GFLOPS: {:.2f}".format(flops))
 
     #https://www.videvo.net/video/mosque-at-the-roadside/2784/
     cap = cv2.VideoCapture('video/mosque.mp4')
