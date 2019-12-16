@@ -11,7 +11,7 @@ on selected devices:
 * Raspberry Pi 4 B + Movidius neural compute stick
 * Raspberry Pi 4 B + Movidius MV224
 
-| Model<br>name | Image<br>shape | COCO mAP<br>(from paper) | FPS<br>(device) |
+| Model<br>name | Image<br>shape | COCO mAP<br>(from authors) | FPS<br>(device) |
 |:--------------:|:--------------:|:------------------------:|:---------------:|
 | YOLOv3-320 | 320x320 | 51.5 |  |
 | YOLOv3-416 | 416x416 | 55.3 |  |
