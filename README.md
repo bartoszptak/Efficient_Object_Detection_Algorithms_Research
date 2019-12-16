@@ -33,3 +33,18 @@ on selected devices:
 - [ ] Adding support for the GPU (Nvidia GPUs)
 - [ ] Adding support for the RAID (Raspberry & Movidious)
 - [ ] Adding support for the GPU fp16 (Nvidia Jetson)
+
+# Actual project tree
+```
+.
+├── bench_utils.py
+├── LICENSE
+├── main.py
+├── models
+│   └── YOLOv3
+│       ├── YOLOv3.cfg
+│       └── YOLOv3.weights
+├── README.md
+└── video
+    └── mosque.mp4
+```
