@@ -20,3 +20,16 @@ on selected devices:
 | EfficientDet-1 | 640x640 | 38.3 |  |
 | EfficientDet-2 | 768x768 | 41.1 |  |
 | EfficientDet-3 | 896x896 | 44.3 |  |
+
+# TODO
+- [x] Create a script to check the FPS on the selected video
+- [ ] Create a script to calculate FLOPS
+- [ ] Creation of a benchmark script
+
+- [x] Starting YOLOv3 with cv2.dnn
+- [ ] Starting EfficientDet with cv2.dnn
+- [ ] EfficientDet training in different sizes
+
+- [ ] Adding support for the GPU (Nvidia GPUs)
+- [ ] Adding support for the RAID (Raspberry & Movidious)
+- [ ] Adding support for the GPU fp16 (Nvidia Jetson)
