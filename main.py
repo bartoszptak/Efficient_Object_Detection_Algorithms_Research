@@ -4,7 +4,8 @@ import glob
 import click
 import cv2
 
-from bench_utils import FPS_bench, FLOPS_bench
+from utils.bench_utils import FPS_bench, FLOPS_bench
+from utils.video_utils import play_camera
 
 
 def load_model(model_type, model_path, engine):
@@ -64,7 +65,8 @@ def main(mode, model_type, model_path, size, engine):
 
     if mode == 'test':
         print('[LOGS] Run camera')
-        raise NotImplementedError
+        cap = cv2.VideoCapture('video/mosque.mp4')
+        play_camera(cap, net, size, model_type)
     elif mode == 'benchmark':
         print('[LOGS] Calculate GFLOPS')
         flops = FLOPS_bench(net, size)
@@ -74,7 +76,7 @@ def main(mode, model_type, model_path, size, engine):
         cap = cv2.VideoCapture('video/mosque.mp4')
 
         print('[LOGS] Calculate FPS')
-        fps = FPS_bench(cap, net, size)
+        fps = FPS_bench(cap, net, size, model_type)
         print("[LOGS] approx. FPS: {:.2f}".format(fps.fps()))
     else:
         print('[LOGS] Run mode option not supported')
