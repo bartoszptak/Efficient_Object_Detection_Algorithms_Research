@@ -47,27 +47,34 @@ def select_destination_engine(net, engine):
 
 
 @click.command()
+@click.option('--mode', default='test', help='Run mode [test, benchmark]', required=True)
 @click.option('--model-type', default=None, help='Model type [yolo, efficientdet]', required=True)
 @click.option('--model-path', default=None, help='Patch to model directory', required=True)
 @click.option('--size', default=None, help='Size of images', required=True)
 @click.option('--engine', default='cpu', help='Destination engine [cpu, gpu, jetson, movidious]')
-def main(model_type, model_path, size, engine):
+def main(mode, model_type, model_path, size, engine):
     size = int(size)
 
     net = load_model(model_type, model_path)
     print(f'[LOGS] Set network size to {size}x{size}x3')
     net = select_destination_engine(net, engine)
 
-    print('[LOGS] Calculate GFLOPS')
-    flops = FLOPS_bench(net, size)
-    print("[LOGS] GFLOPS: {:.2f}".format(flops))
+    if mode == 'test':
+        print('[LOGS] Run camera')
+        raise NotImplementedError
+    elif mode == 'benchmark':
+        print('[LOGS] Calculate GFLOPS')
+        flops = FLOPS_bench(net, size)
+        print("[LOGS] GFLOPS: {:.2f}".format(flops))
 
-    #https://www.videvo.net/video/mosque-at-the-roadside/2784/
-    cap = cv2.VideoCapture('video/mosque.mp4')
+        #https://www.videvo.net/video/mosque-at-the-roadside/2784/
+        cap = cv2.VideoCapture('video/mosque.mp4')
 
-    print('[LOGS] Calculate FPS')
-    fps = FPS_bench(cap, net, size)
-    print("[LOGS] approx. FPS: {:.2f}".format(fps.fps()))
+        print('[LOGS] Calculate FPS')
+        fps = FPS_bench(cap, net, size)
+        print("[LOGS] approx. FPS: {:.2f}".format(fps.fps()))
+    else:
+        print('[LOGS] Run mode option not supported')
 
 
 if __name__ == '__main__':
