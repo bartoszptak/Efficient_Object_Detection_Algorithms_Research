@@ -1,4 +1,4 @@
-# Efficient Object DetectionAlgorithms Research
+# Efficient Object Detection Algorithms Research
 I would like to compare the models for real time object detection and their performance. I want to use cv2.dnn module and test the following models:
 * YOLOv3 [[paper](https://arxiv.org/pdf/1804.02767.pdf)][[code](https://pjreddie.com/darknet/yolo/)]
 * EfficientDet [[paper](https://arxiv.org/pdf/1911.09070.pdf)][[code](https://github.com/xuannianz/EfficientDet)]
