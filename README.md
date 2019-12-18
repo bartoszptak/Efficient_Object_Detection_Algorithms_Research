@@ -8,10 +8,12 @@ on selected devices:
 * Notebook i5-5200U + 8GB RAM + NVIDIA GT940m
 * Notebook i5-8265U + 12GB RAM + NVIDIA MX230
 * PC Core i5-8400 + 16GB RAM + NVIDIA GTX1060 6GB
-* Nvidia Jetson TX2
-* Raspberry Pi 4 B + Movidius neural compute stick
+* NVIDIA Jetson TX2
+* NVIDIA Xavier
+* Raspberry Pi 4 B + Movidius NCS/NCS2
 * Raspberry Pi 4 B + Movidius MV224
 
+All results will be posted [here](https://www.overleaf.com/read/xkmsnjnfxwrg).
 
 # TODO
 - [x] Create a script to check the FPS on the selected video
@@ -20,9 +22,10 @@ on selected devices:
 
 - [x] Starting YOLOv3 with cv2.dnn
 - [ ] Starting EfficientDet with cv2.dnn
+- [ ] Starting VoVNet with cv2.dnn
 - [ ] EfficientDet training in different sizes
 
-- [ ] Adding support for the GPU (Nvidia GPUs)
+- [x] Adding support for the GPU (Nvidia CUDA GPUs)
 - [ ] Adding support for the RAID (Raspberry & Movidious)
 - [ ] Adding support for the GPU fp16 (Nvidia Jetson)
 
