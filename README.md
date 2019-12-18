@@ -13,6 +13,10 @@ on selected devices:
 * Raspberry Pi 4 B + Movidius NCS/NCS2
 * Raspberry Pi 4 B + Movidius MV224
 
+# Installation guide
+[here](https://github.com/bartoszptak/Efficient_Object_Detection_Algorithms_Research/blob/master/INSTALLATION_GUIDE.md)
+
+# Results
 All results will be posted [here](https://www.overleaf.com/read/xkmsnjnfxwrg).
 
 # TODO
