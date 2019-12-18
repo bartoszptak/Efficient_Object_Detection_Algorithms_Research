@@ -11,9 +11,10 @@ def load_model(model_type, model_path):
     if model_type == 'yolo':
         print('[LOGS] Load YoloV3 model')
         net = cv2.dnn.readNetFromDarknet(glob.glob(model_path+'/*.cfg')[0], glob.glob(model_path+'/*.weights')[0])
-    # elif model_type == 'efficientdet':
-    #     print('[LOGS] Load Efficient-det model')
-    #     net = cv2.dnn.readNetFromTensorflow(model_path)
+    elif model_type == 'efficientdet':
+        raise NotImplementedError
+        # print('[LOGS] Load Efficient-det model')
+        # net = cv2.dnn.readNetFromTensorflow(model_path)
     else:
         print('[LOGS] Model option not supported')
         print('[LOGS] Exit')
@@ -29,12 +30,14 @@ def select_destination_engine(net, engine):
     elif engine == 'gpu':
         print('[LOGS] Set preferable target engine to GPU')
         net.setPreferableTarget(cv2.dnn.DNN_TARGET_OPENCL)
-    # elif engine == 'jetson':
-    #     print('[LOGS] Set preferable target engine to Jetson (GPU FP16)')
-    #     net.setPreferableTarget(cv2.dnn.DNN_TARGET_OPENCL_FP16)
-    # elif engine == 'movidious':
-    #     print('[LOGS] Set preferable target engine to Movidious (MYRIAD)')
-    #     net.setPreferableTarget(cv2.dnn.DNN_TARGET_MYRIAD)
+    elif engine == 'jetson':
+        raise NotImplementedError
+        # print('[LOGS] Set preferable target engine to Jetson (GPU FP16)')
+        # net.setPreferableTarget(cv2.dnn.DNN_TARGET_OPENCL_FP16)
+    elif engine == 'movidious':
+        raise NotImplementedError
+        # print('[LOGS] Set preferable target engine to Movidious (MYRIAD)')
+        # net.setPreferableTarget(cv2.dnn.DNN_TARGET_MYRIAD)
     else:
         print('[LOGS] Engine option not supported')
         print('[LOGS] Exit')
