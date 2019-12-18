@@ -7,7 +7,7 @@ import cv2
 from bench_utils import FPS_bench, FLOPS_bench
 
 
-def load_model(model_type, model_path):
+def load_model(model_type, model_path, engine):
     if model_type == 'yolo':
         print('[LOGS] Load YoloV3 model')
         net = cv2.dnn.readNetFromDarknet(glob.glob(model_path+'/*.cfg')[0], glob.glob(model_path+'/*.weights')[0])
@@ -20,7 +20,10 @@ def load_model(model_type, model_path):
         print('[LOGS] Exit')
         exit(0)
 
-    net.setPreferableBackend(cv2.dnn.DNN_BACKEND_OPENCV)
+    if engine == 'gpu' or engine=='jetson':
+        net.setPreferableBackend(cv2.dnn.DNN_BACKEND_CUDA)
+    else:
+        net.setPreferableBackend(cv2.dnn.DNN_BACKEND_OPENCV)
     return net
 
 def select_destination_engine(net, engine):
@@ -28,8 +31,8 @@ def select_destination_engine(net, engine):
         print('[LOGS] Set preferable target engine to CPU')
         net.setPreferableTarget(cv2.dnn.DNN_TARGET_CPU)
     elif engine == 'gpu':
-        print('[LOGS] Set preferable target engine to GPU')
-        net.setPreferableTarget(cv2.dnn.DNN_TARGET_OPENCL)
+        print('[LOGS] Set preferable target engine to GPU CUDA')
+        net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
     elif engine == 'jetson':
         raise NotImplementedError
         # print('[LOGS] Set preferable target engine to Jetson (GPU FP16)')
@@ -55,7 +58,7 @@ def select_destination_engine(net, engine):
 def main(mode, model_type, model_path, size, engine):
     size = int(size)
 
-    net = load_model(model_type, model_path)
+    net = load_model(model_type, model_path, engine)
     print(f'[LOGS] Set network size to {size}x{size}x3')
     net = select_destination_engine(net, engine)
 
