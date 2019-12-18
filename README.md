@@ -1,4 +1,4 @@
-# Efficient Object Detection Research
+# Efficient Object DetectionAlgorithms Research
 I would like to compare the models for real time object detection and their performance. I want to use cv2.dnn module and test the following models:
 * YOLOv3 [[paper](https://arxiv.org/pdf/1804.02767.pdf)][[code](https://pjreddie.com/darknet/yolo/)]
 * EfficientDet [[paper](https://arxiv.org/pdf/1911.09070.pdf)][[code](https://github.com/xuannianz/EfficientDet)]
@@ -12,17 +12,6 @@ on selected devices:
 * Raspberry Pi 4 B + Movidius neural compute stick
 * Raspberry Pi 4 B + Movidius MV224
 
-| Model<br>name | Image<br>size | COCO mAP<br>(from authors) | Model<br>GFLOPS | FPS<br>(device) |
-|:--------------:|:--------------:|:--------------------------:|:---------------:|:---------------:|
-| YOLOv3-320 | 320 | 51.5 | 39.19 |  |
-| YOLOv3-416 | 416 | 55.3 | 66.23 |  |
-| YOLOv3-608 | 608 | 57.9 | 141.48 |  |
-| EfficientDet-0 | 512 | 32.4 |  |  |
-| EfficientDet-1 | 640 | 38.3 |  |  |
-| EfficientDet-2 | 768 | 41.1 |  |  |
-| EfficientDet-3 | 896 | 44.3 |  |  |
-| RefineDet320<br>-VoVNet-39  | 320 | 33.5 |  |  |
-| RefineDet320<br>-VoVNet-39 | 512 | 38.5 |  |  |
 
 # TODO
 - [x] Create a script to check the FPS on the selected video
