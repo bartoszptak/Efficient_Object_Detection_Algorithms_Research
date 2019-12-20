@@ -9,6 +9,13 @@ pip install opencv-python
 ```
 
 # OpenCV for GPU guide
+**You must have CUDA capability at least 5.3!**
+
+Step 0: Install NVIDIA drivers, cuda-toolkit and NVCC
+```
+https://www.tensorflow.org/install/gpu
+```
+Step 1
 ```
 cd ~
 git clone https://github.com/opencv/opencv.git
@@ -17,7 +24,7 @@ cd opencv
 mkdir build
 cd build
 ```
-
+Step 2
 ```
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D CMAKE_INSTALL_PREFIX=/usr/local \
@@ -35,11 +42,15 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D OPENCV_ENABLE_NONFREE=ON \
     -D BUILD_NEW_PYTHON_SUPPORT=ON ..
 ```
-
+Step 3
 ```
 make -j4
 sudo make install
 sudo ldconfig
+```
+Step 4
+```
+# linking
 ```
 
 # OpenVino for Raspberry guide
