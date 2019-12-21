@@ -50,7 +50,7 @@ sudo ldconfig
 ```
 Step 4
 ```
-# linking
+ln -s /usr/local/lib/python3.6/site-packages/cv2/python-3.6/cv2.cpython-36m-x86_64-linux-gnu.so ~/miniconda3/lib/python3.6/site-packages/cv2.so
 ```
 
 # OpenVino for Raspberry guide
