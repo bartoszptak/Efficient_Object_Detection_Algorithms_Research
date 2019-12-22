@@ -6,13 +6,13 @@ from coco_names import coco_names as classes
 confThreshold = 0.5  # Confidence threshold
 nmsThreshold = 0.4  # Non-maximum suppression threshold
 
-def getOutputsNames(net):
+def yolo_getOutputsNames(net):
     # Get the names of all the layers in the network
     layersNames = net.getLayerNames()
     # Get the names of the output layers, i.e. the layers with unconnected outputs
     return [layersNames[i[0] - 1] for i in net.getUnconnectedOutLayers()]
     
-def postprocess(frame, outs, show_boxes=False):
+def yolo_postprocess(frame, outs, show_boxes=False):
     frameHeight = frame.shape[0]
     frameWidth = frame.shape[1]
 
@@ -51,11 +51,11 @@ def postprocess(frame, outs, show_boxes=False):
         width = box[2]
         height = box[3]
         if show_boxes:
-            drawPred(frame, classIds[i], confidences[i],
+            yolo_draw(frame, classIds[i], confidences[i],
                      left, top, left + width, top + height)
 
 
-def drawPred(frame, classId, conf, left, top, right, bottom):
+def yolo_draw(frame, classId, conf, left, top, right, bottom):
     # Draw a bounding box.
     cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255))
 
@@ -72,3 +72,11 @@ def drawPred(frame, classId, conf, left, top, right, bottom):
     top = max(top, labelSize[1])
     cv2.putText(frame, label, (left, top),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255))
+
+def yolo_forward(net, outputs, frame, size, show_boxes):
+    blob = cv2.dnn.blobFromImage(image=frame, scalefactor=1.0/255., size=(size,size), mean=(0, 0, 0), swapRB=True, crop=False)
+    net.setInput(blob)
+
+    out = net.forward(outputs)
+    yolo_postprocess(frame, out, show_boxes)
+    return frame

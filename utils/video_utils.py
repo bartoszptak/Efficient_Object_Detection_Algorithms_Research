@@ -1,24 +1,26 @@
 import numpy as np
 
 import cv2
-from utils.yolo_utils import postprocess as yolo_postprocess
-from utils.yolo_utils import getOutputsNames as yolo_inputs
 
 def play_camera(cap, net, size, model_type):
     if model_type == 'yolo':
-        postprocess = yolo_postprocess
-        inputs = yolo_inputs(net)
+        from utils.yolo_utils import yolo_getOutputsNames, yolo_forward
+        outputs = yolo_getOutputsNames(net)
+        forward = yolo_forward
+    elif model_type == 'vovnet':
+        from utils.vovnet_utils import vovnet_getOutputsNames, vovnet_forward
+        outputs = vovnet_getOutputsNames(net)
+        forward = vovnet_forward
+    else:
+        print('[LOGS] Net inference not implemented yet')
+        raise NotImplementedError
 
     while True:
         hasFrame, frame = cap.read()
         if not hasFrame:
             break
 
-        blob = cv2.dnn.blobFromImage(image=frame, scalefactor=1.0/255., size=(size,size), mean=(0, 0, 0), swapRB=True, crop=False)
-        net.setInput(blob)
-
-        out = net.forward(inputs)
-        postprocess(frame, out, show_boxes=True)
+        frame = forward(net, outputs, frame, size, show_boxes=True)
 
         cv2.imshow('Video', frame)
         cv2.waitKey(1)

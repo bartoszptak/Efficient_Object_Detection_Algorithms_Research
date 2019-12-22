@@ -13,9 +13,11 @@ def load_model(model_type, model_path, engine):
         print('[LOGS] Load YoloV3 model')
         net = cv2.dnn.readNetFromDarknet(glob.glob(model_path+'/*.cfg')[0], glob.glob(model_path+'/*.weights')[0])
     elif model_type == 'efficientdet':
-        raise NotImplementedError
-        # print('[LOGS] Load Efficient-det model')
-        # net = cv2.dnn.readNetFromTensorflow(model_path)
+        print('[LOGS] Load Efficient-det model')
+        net = cv2.dnn.readNetFromTensorflow(glob.glob(model_path+'/*.pb')[0])
+    elif model_type == 'vovnet':
+        print('[LOGS] Load VoVNet model')
+        net = cv2.dnn.readNetFromCaffe(glob.glob(model_path+'/deploy.prototxt')[0], glob.glob(model_path+'/model.caffemodel')[0])
     else:
         print('[LOGS] Model option not supported')
         print('[LOGS] Exit')
@@ -35,13 +37,11 @@ def select_destination_engine(net, engine):
         print('[LOGS] Set preferable target engine to GPU CUDA')
         net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA)
     elif engine == 'jetson':
-        raise NotImplementedError
-        # print('[LOGS] Set preferable target engine to Jetson (GPU FP16)')
-        # net.setPreferableTarget(cv2.dnn.DNN_TARGET_OPENCL_FP16)
+        print('[LOGS] Set preferable target engine to Jetson (GPU FP16)')
+        net.setPreferableTarget(cv2.dnn.DNN_TARGET_CUDA_FP16)
     elif engine == 'movidious':
-        raise NotImplementedError
-        # print('[LOGS] Set preferable target engine to Movidious (MYRIAD)')
-        # net.setPreferableTarget(cv2.dnn.DNN_TARGET_MYRIAD)
+        print('[LOGS] Set preferable target engine to Movidious (MYRIAD)')
+        net.setPreferableTarget(cv2.dnn.DNN_TARGET_MYRIAD)
     else:
         print('[LOGS] Engine option not supported')
         print('[LOGS] Exit')
@@ -52,7 +52,7 @@ def select_destination_engine(net, engine):
 
 @click.command()
 @click.option('--mode', default='test', help='Run mode [test, benchmark]', required=True)
-@click.option('--model-type', default=None, help='Model type [yolo, efficientdet]', required=True)
+@click.option('--model-type', default=None, help='Model type [yolo, efficientdet, vovnet]', required=True)
 @click.option('--model-path', default=None, help='Patch to model directory', required=True)
 @click.option('--size', default=None, help='Size of images', required=True)
 @click.option('--engine', default='cpu', help='Destination engine [cpu, gpu, jetson, movidious]')
@@ -77,7 +77,7 @@ def main(mode, model_type, model_path, size, engine):
 
         print('[LOGS] Calculate FPS')
         fps = FPS_bench(cap, net, size, model_type)
-        print("[LOGS] approx. FPS: {:.2f}".format(fps.fps()))
+        print("[LOGS] Approx. FPS: {:.2f}".format(fps.fps()))
     else:
         print('[LOGS] Run mode option not supported')
 
