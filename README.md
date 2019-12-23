@@ -36,14 +36,29 @@ All results will be posted [here](https://www.overleaf.com/read/xkmsnjnfxwrg).
 # Actual project tree
 ```
 .
-├── bench_utils.py
+├── coco_names.py
+├── download_models.py
+├── INSTALLATION_GUIDE.md
 ├── LICENSE
 ├── main.py
 ├── models
+│   ├── EfficientDet
+│   │   ├── EfficientDet-d0
+│   │   ├── EfficientDet-d1
+│   │   ├── EfficientDet-d2
+│   │   └── EfficientDet-d3
+│   ├── VoVNet
+│   │   ├── VoVNet-39
+│   │   └── VoVNet-57
 │   └── YOLOv3
 │       ├── YOLOv3.cfg
 │       └── YOLOv3.weights
 ├── README.md
+├── utils
+│   ├── bench_utils.py
+│   ├── video_utils.py
+│   ├── vovnet_utils.py
+│   └── yolo_utils.py
 └── video
     └── mosque.mp4
 ```
