@@ -16,7 +16,7 @@ on selected devices:
 [here](https://github.com/bartoszptak/Efficient_Object_Detection_Algorithms_Research/blob/master/INSTALLATION_GUIDE.md)
 
 # Results
-All results will be posted [here](https://www.overleaf.com/read/xkmsnjnfxwrg).
+
 
 # TODO
 - [x] Create a script to check the FPS on the selected video
