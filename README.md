@@ -1,17 +1,16 @@
 # Efficient Object Detection Algorithms Research
-I would like to compare the models for real time object detection and their performance. I want to use cv2.dnn module and test the following models:
+I would like to compare the models for real time object detection and their performance.  I want to (future: use cv2.dnn module and) est the following models:
 * YOLOv3 [[paper](https://arxiv.org/pdf/1804.02767.pdf)][[code](https://pjreddie.com/darknet/yolo/)]
 * EfficientDet [[paper](https://arxiv.org/pdf/1911.09070.pdf)][code]
-* VoVNet [[paper](https://arxiv.org/pdf/1904.09730v1.pdf)][code]
+* (future) VoVNet [[paper](https://arxiv.org/pdf/1904.09730v1.pdf)][code]
 
 on selected devices:
-* Notebook i5-5200U + 8GB RAM + NVIDIA GT940m
 * Notebook i5-8265U + 12GB RAM + NVIDIA MX230
 * PC Core i5-8400 + 16GB RAM + NVIDIA GTX1060 6GB
 * NVIDIA Jetson TX2
-* NVIDIA Xavier
-* Raspberry Pi 4 B + Movidius NCS/NCS2
-* Raspberry Pi 4 B + Movidius MV224
+* (future) NVIDIA Xavier
+* Raspberry Pi 4 B + Movidius NCS
+* (future) Raspberry Pi 4 B + Movidius NCS2
 
 # Installation guide
 [here](https://github.com/bartoszptak/Efficient_Object_Detection_Algorithms_Research/blob/master/INSTALLATION_GUIDE.md)
@@ -32,33 +31,3 @@ All results will be posted [here](https://www.overleaf.com/read/xkmsnjnfxwrg).
 - [x] Adding support for the GPU (Nvidia CUDA GPUs)
 - [ ] Adding support for the RAID (Raspberry & Movidious)
 - [ ] Adding support for the GPU fp16 (Nvidia Jetson)
-
-# Actual project tree
-```
-.
-├── coco_names.py
-├── download_models.py
-├── INSTALLATION_GUIDE.md
-├── LICENSE
-├── main.py
-├── models
-│   ├── EfficientDet
-│   │   ├── EfficientDet-d0
-│   │   ├── EfficientDet-d1
-│   │   ├── EfficientDet-d2
-│   │   └── EfficientDet-d3
-│   ├── VoVNet
-│   │   ├── VoVNet-39
-│   │   └── VoVNet-57
-│   └── YOLOv3
-│       ├── YOLOv3.cfg
-│       └── YOLOv3.weights
-├── README.md
-├── utils
-│   ├── bench_utils.py
-│   ├── video_utils.py
-│   ├── vovnet_utils.py
-│   └── yolo_utils.py
-└── video
-    └── mosque.mp4
-```
