@@ -7,13 +7,14 @@ In the future I am going to modify the code so that all networks can use the cv2
 * EfficientDet [[paper](https://arxiv.org/pdf/1911.09070.pdf)][code]
 * (future) VoVNet [[paper](https://arxiv.org/pdf/1904.09730v1.pdf)][code]
 
-# Devices:
+# Devices
 * Notebook i5-8265U + 12GB RAM + NVIDIA MX230
 * PC Core i5-8400 + 16GB RAM + NVIDIA GTX1060 6GB
 * NVIDIA Jetson TX2
 
 # Installation guide
-[here](https://github.com/bartoszptak/Efficient_Object_Detection_Algorithms_Research/blob/master/INSTALLATION_GUIDE.md)
+* [OpenCV for CPU guide](https://github.com/bartoszptak/Efficient_Object_Detection_Algorithms_Research/blob/master/INSTALLATION_GUIDE.md#opencv-for-cpu-guide)
+* [OpenCV for GPU guide](https://github.com/bartoszptak/Efficient_Object_Detection_Algorithms_Research/blob/master/INSTALLATION_GUIDE.md#opencv-for-gpu-guide)
 
 # Results
 
