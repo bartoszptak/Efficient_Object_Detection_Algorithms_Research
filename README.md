@@ -8,9 +8,6 @@ on selected devices:
 * Notebook i5-8265U + 12GB RAM + NVIDIA MX230
 * PC Core i5-8400 + 16GB RAM + NVIDIA GTX1060 6GB
 * NVIDIA Jetson TX2
-* (future) NVIDIA Xavier
-* Raspberry Pi 4 B + Movidius NCS
-* (future) Raspberry Pi 4 B + Movidius NCS2
 
 # Installation guide
 [here](https://github.com/bartoszptak/Efficient_Object_Detection_Algorithms_Research/blob/master/INSTALLATION_GUIDE.md)
@@ -18,16 +15,3 @@ on selected devices:
 # Results
 
 
-# TODO
-- [x] Create a script to check the FPS on the selected video
-- [x] Create a script to calculate FLOPS
-- [ ] Creation of a benchmark script
-
-- [x] Starting YOLOv3 with cv2.dnn
-- [ ] Starting EfficientDet with cv2.dnn
-- [ ] Starting VoVNet with cv2.dnn
-- [ ] EfficientDet training in different sizes
-
-- [x] Adding support for the GPU (Nvidia CUDA GPUs)
-- [ ] Adding support for the RAID (Raspberry & Movidious)
-- [ ] Adding support for the GPU fp16 (Nvidia Jetson)
