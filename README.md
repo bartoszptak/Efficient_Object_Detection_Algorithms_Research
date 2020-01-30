@@ -17,4 +17,14 @@ In the future I am going to modify the code so that all networks can use the cv2
 * [OpenCV for GPU guide](https://github.com/bartoszptak/Efficient_Object_Detection_Algorithms_Research/blob/master/INSTALLATION_GUIDE.md#opencv-for-gpu-guide)
 
 # Results
+## CPU
+| Model | Size | Intel<br>i5-8265U | Intel<br>i5-8400 |
+|:-----:|:----:|:-----------------:|:----------------:|
+|       |      | 1:<br>2:<br>4:    | 1:<br>2:<br>4:   |
+|       |      |                   |                  |
 
+## GPU
+| Model | Size | NVIDIA<br>MX230 | NVIDIA<br>GTX1060 | NVIDIA <br>Jetson TX2 |
+|:-----:|:----:|:---------------:|:-----------------:|:---------------------:|
+|       |      | 1:<br>2:<br>4:  | 1:<br>2:<br>4:    | 1:<br>2:<br>4:        |
+|       |      |                 |                   |                       |
