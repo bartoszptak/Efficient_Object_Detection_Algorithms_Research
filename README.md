@@ -4,7 +4,7 @@ In the future I am going to modify the code so that all networks can use the cv2
 
 # Models
 * YOLOv3 [[paper](https://arxiv.org/pdf/1804.02767.pdf)][[code](https://pjreddie.com/darknet/yolo/)]
-* EfficientDet [[paper](https://arxiv.org/pdf/1911.09070.pdf)][code]
+* EfficientDet [[paper](https://arxiv.org/pdf/1911.09070.pdf)][[code](https://github.com/xuannianz/EfficientDet)]
 * (future) VoVNet [[paper](https://arxiv.org/pdf/1904.09730v1.pdf)][code]
 
 # Devices
