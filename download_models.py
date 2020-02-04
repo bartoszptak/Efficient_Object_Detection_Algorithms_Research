@@ -49,14 +49,14 @@ def main() -> None:
     # download from darknet
     download_file_from_google_drive(
         '1mrqL9rFoYW-4Jc57MsTipkvOTRy_EGfe',
-        'models/EfficientDet-d0/EfficientDet-d0.weights'
+        'models/EfficientDet/EfficientDet-d0/EfficientDet-d0.weights'
     )
 
     print('[LOGS] Download EfficientDet-d1')
     # download from darknet
     download_file_from_google_drive(
         '1-QkMq56w4dZOTQUnbitF53NKEiNF9F_Q',
-        'models/EfficientDet-d1/EfficientDet-d1.weights'
+        'models/EfficientDet/EfficientDet-d1/EfficientDet-d1.weights'
     )
 
 if __name__ == "__main__":
