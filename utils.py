@@ -1,8 +1,7 @@
 import cv2
 
-from names import coco_names as classes
 
-def draw(frame, classId, conf, left, top, right, bottom):
+def draw(frame, classes, classId, conf, left, top, right, bottom):
     # Draw a bounding box.
     cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255))
 
@@ -21,7 +20,11 @@ def draw(frame, classId, conf, left, top, right, bottom):
                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255))
 
 
-def draw_all(results):
+def draw_all(results, model):
+    if model == 'yolo':
+        from names import coco_names as classes
+    else:
+        from names import voc_names as classes
     for frame, boxes in results:
         for box in boxes:
-            draw(frame, *box)
+            draw(frame, classes, *box)

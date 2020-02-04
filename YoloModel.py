@@ -13,6 +13,7 @@ class YoloModel(Model):
                  size=320,
                  config_path='models/YOLOv3/YOLOv3.cfg',
                  weights_path='models/YOLOv3/YOLOv3.weights'):
+        super().__init__()
 
         self.size = size
         self.confThreshold = 0.5
@@ -41,11 +42,6 @@ class YoloModel(Model):
 
         self.outputs = getOutputsNames(self.net)
 
-        self.preprocess_time = 0
-        self.inference_time = 0
-        self.postprocess_time = 0
-        self.count = 0
-
     def preprocess(self, frames):
         return frames
 
@@ -62,7 +58,7 @@ class YoloModel(Model):
 
         st = time.time()
         outs = self.inference(frames)
-        self.inference_time  += (time.time() - st)
+        self.inference_time += (time.time() - st)
 
         st = time.time()
         a, b, c = outs
@@ -125,9 +121,3 @@ class YoloModel(Model):
                             left, top, left + width, top + height))
 
         return results
-
-    def get_total_FPS(self):
-        return self.count/(self.preprocess_time+self.inference_time+self.postprocess_time)
-
-    def get_inference_FPS(self):
-        return self.count/self.inference_time
