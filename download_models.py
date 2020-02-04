@@ -3,7 +3,7 @@ import zipfile
 import os
 
 
-def download_file_from_google_drive(id, destination):
+def download_file_from_google_drive(id:str, destination:str) -> None:
     def get_confirm_token(response):
         for key, value in response.cookies.items():
             if key.startswith('download_warning'):
@@ -33,16 +33,32 @@ def download_file_from_google_drive(id, destination):
 
     save_response_content(response, destination)
 
-def download_file_from_link(link, destination):
+def download_file_from_link(link:str, destination:str) -> None:
     r = requests.get(link, allow_redirects=True)
     open(destination, 'wb').write(r.content)
 
-if __name__ == "__main__":
-    import sys
-
+def main() -> None:
     print('[LOGS] Download YoloV3')
     # download YoloV3 from darknet
     download_file_from_link(
         'https://pjreddie.com/media/files/yolov3.weights',
         'models/YOLOv3/YOLOv3.weights'
     )
+
+    print('[LOGS] Download EfficientDet-d0')
+    # download from darknet
+    download_file_from_google_drive(
+        '1mrqL9rFoYW-4Jc57MsTipkvOTRy_EGfe',
+        'models/EfficientDet-d0/EfficientDet-d0.weights'
+    )
+
+    print('[LOGS] Download EfficientDet-d1')
+    # download from darknet
+    download_file_from_google_drive(
+        '1-QkMq56w4dZOTQUnbitF53NKEiNF9F_Q',
+        'models/EfficientDet-d1/EfficientDet-d1.weights'
+    )
+
+if __name__ == "__main__":
+    main()
+    
