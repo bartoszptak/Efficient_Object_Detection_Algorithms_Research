@@ -23,26 +23,41 @@ def load_model(model:str, size:int, engine:str) -> Model:
 @click.option('--model', default=None, help='Model type [yolo, efficientdet, vovnet]', required=True)
 @click.option('--size', default=None, help='Size of images', required=True)
 @click.option('--engine', default='cpu', help='Destination engine [cpu, gpu, jetson]')
-def main(mode, model, size, engine):
+@click.option('--batch-size', default='1', help='Batch size of test')
+
+def main(mode, model, size, engine, batch_size):
     size = int(size)
+    batch_size = int(batch_size)
 
     net = load_model(model, size, engine)
 
-    img = cv2.imread('samples/sample.jpeg')
-    img2 = cv2.imread('samples/sample.jpg')
-    res = net.predict([img,img2])
+    if mode == 'test':
+        img = cv2.imread('samples/sample.jpeg')
+        img2 = cv2.imread('samples/sample.jpg')
+        res = net.predict([img,img2])
+        draw_all(res, model)
 
-    draw_all(res)
+        cv2.imshow('a', img)
+        cv2.waitKey(0)
+        cv2.imshow('a', img2)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
 
-    cv2.imshow('a', img)
-    cv2.waitKey(0)
-    cv2.imshow('a', img2)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+        print(f'{net.get_total_FPS()}')
+        print(f'{net.get_inference_FPS()}')
 
+    else:
+        from glob import glob
+        from tqdm import tqdm
+        imgs = glob('data/VOCdevkit/VOC2007/JPEGImages/*.jpg')
 
-    print(f'{net.get_total_FPS()}')
-    print(f'{net.get_inference_FPS()}')
+        for i in tqdm(range(0,len(imgs),batch_size)):
+            ims = [cv2.imread(im) for im in imgs[i:i+batch_size]]
+            res = net.predict(ims)
+
+    print(f'Total imgs: {net.count:.2f}')
+    print(f'Total FPS: {net.get_total_FPS():.2f}')
+    print(f'Inference FPS: {net.get_inference_FPS():.2f}')
 
 if __name__ == '__main__':
     main()
