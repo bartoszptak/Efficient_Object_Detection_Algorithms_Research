@@ -22,7 +22,7 @@ class EffModel(Model):
         self.num_classes = num_classes
 
         assert size in [
-            512, 640], f'Net size {size} not in [320, 416, 608]'
+            512, 640], f'Net size {size} not in [512, 640]'
 
         def setPreferableEngine(engine):
             if engine == 'gpu':

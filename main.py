@@ -32,19 +32,13 @@ def main(mode, model, size, engine, batch_size):
     net = load_model(model, size, engine)
 
     if mode == 'test':
-        img = cv2.imread('samples/sample.jpeg')
-        img2 = cv2.imread('samples/sample.jpg')
-        res = net.predict([img,img2])
+        img = cv2.imread('samples/sample.jpg')
+        res = net.predict([img])
         draw_all(res, model)
 
         cv2.imshow('a', img)
         cv2.waitKey(0)
-        cv2.imshow('a', img2)
-        cv2.waitKey(0)
         cv2.destroyAllWindows()
-
-        print(f'{net.get_total_FPS()}')
-        print(f'{net.get_inference_FPS()}')
 
     else:
         from glob import glob
