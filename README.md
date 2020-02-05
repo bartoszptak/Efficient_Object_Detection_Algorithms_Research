@@ -43,34 +43,34 @@ rm 00{2..9}*.jpg
 # Results
 INFO: TOTAL FPS = preprocessing + inference + postprocessing)
 
-### TOTAL FPS - BATCH_SIZE=1
+* ### TOTAL FPS - BATCH_SIZE=1
 | Model        | Size | MX230 | GTX1060 | Jetson TX2 |
 |--------------|:----:|:-----:|:-------:|:----------:|
-| YOLOv3       |  416 |  6.33 |         |            |
-|              |  608 |  3.17 |         |            |
-| EfficientDet |  512 |  5.28 |         |            |
-|              |  640 |  2.77 |         |            |
+| YOLOv3       |  416 |  6.33 | 15.48 |            |
+|              |  608 |  3.17 |  7.58 |            |
+| EfficientDet |  512 |  5.28 |  14.79 |            |
+|              |  640 |  2.77 |  8.51  |            |
 
-### TOTAL FPS - BATCH_SIZE=2
+* ### TOTAL FPS - BATCH_SIZE=2
 | Model        | Size | MX230 | GTX1060 | Jetson TX2 |
 |--------------|:----:|:-----:|:-------:|:----------:|
-| YOLOv3       |  416 |  6.68 |         |            |
-|              |  608 |  3.21 |         |            |
-| EfficientDet |  512 |  5.87 |         |            |
-|              |  640 |  ERR  |         |            |
+| YOLOv3       |  416 |  6.68 |  16.05 |            |
+|              |  608 |  3.21 |  7.75 |            |
+| EfficientDet |  512 |  5.87 | 17.17  |            |
+|              |  640 |  ERR  | 9.41  |            |
 
-### INFERENCE FPS - BATCH_SIZE=1
+* ### INFERENCE FPS - BATCH_SIZE=1
 | Model        | Size | MX230 | GTX1060 | Jetson TX2 |
 |--------------|:----:|:-----:|:-------:|:----------:|
-| YOLOv3       |  416 |  8.33 |         |            |
-|              |  608 |  4.37 |         |            |
-| EfficientDet |  512 | 11.65 |         |            |
-|              |  640 |  5.86 |         |            |
+| YOLOv3       |  416 |  8.33 |  31.20 |            |
+|              |  608 |  4.37 | 16.51 |            |
+| EfficientDet |  512 | 11.65 | 33.12 |            |
+|              |  640 |  5.86 |  18.79 |            |
 
-### INFERENCE FPS - BATCH_SIZE=2
+* ### INFERENCE FPS - BATCH_SIZE=2
 | Model        | Size | MX230 | GTX1060 | Jetson TX2 |
 |--------------|:----:|:-----:|:-------:|:----------:|
-| YOLOv3       |  416 |  9.01 |         |            |
-|              |  608 |  4.50 |         |            |
-| EfficientDet |  512 | 12.61 |         |            |
-|              |  640 |  ERR  |         |            |
+| YOLOv3       |  416 |  9.01 |  34.61  |            |
+|              |  608 |  4.50 |  17.23  |            |
+| EfficientDet |  512 | 12.61 |  39.46  |            |
+|              |  640 |  ERR  |  21.14  |            |
