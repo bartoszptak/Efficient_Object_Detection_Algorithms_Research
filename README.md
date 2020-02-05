@@ -41,7 +41,7 @@ rm 00{2..9}*.jpg
 ```
 
 # Results
-INFO: TOTAL FPS = preprocessing + inference + postprocessing)
+INFO: TOTAL FPS = preprocessing + inference + postprocessing
 
 * ### TOTAL FPS - BATCH_SIZE=1
 | Model        | Size | MX230 | GTX1060 | Jetson TX2 |
@@ -57,7 +57,7 @@ INFO: TOTAL FPS = preprocessing + inference + postprocessing)
 | YOLOv3       |  416 |  6.68 |  16.05 |            |
 |              |  608 |  3.21 |  7.75 |            |
 | EfficientDet |  512 |  5.87 | 17.17  |            |
-|              |  640 |  ERR  | 9.41  |            |
+|              |  640 |  ERR*  | 9.41  |            |
 
 * ### INFERENCE FPS - BATCH_SIZE=1
 | Model        | Size | MX230 | GTX1060 | Jetson TX2 |
@@ -73,4 +73,6 @@ INFO: TOTAL FPS = preprocessing + inference + postprocessing)
 | YOLOv3       |  416 |  9.01 |  34.61  |            |
 |              |  608 |  4.50 |  17.23  |            |
 | EfficientDet |  512 | 12.61 |  39.46  |            |
-|              |  640 |  ERR  |  21.14  |            |
+|              |  640 |  ERR*  |  21.14  |            |
+
+ERR* - memory error/cudnn initialize error
