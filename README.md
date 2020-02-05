@@ -16,6 +16,30 @@ In the future I am going to modify the code so that all networks can use the cv2
 * [OpenCV for CPU guide](https://github.com/bartoszptak/Efficient_Object_Detection_Algorithms_Research/blob/master/INSTALLATION_GUIDE.md#opencv-for-cpu-guide)
 * [OpenCV for GPU guide](https://github.com/bartoszptak/Efficient_Object_Detection_Algorithms_Research/blob/master/INSTALLATION_GUIDE.md#opencv-for-gpu-guide)
 
+* download modified EfficientDet repos
+```
+git clone git@github.com:bartoszptak/EfficientDet.git
+cd EfficientDet/
+mv EfficientDet/* .
+rm -r EfficientDet/ inference.py
+```
+
+* download models
+```
+python download_models.py
+```
+
+* (optionaly) download and prepare dataset for benchmark
+```
+mkdir data && cd data
+wget "http://host.robots.ox.ac.uk/pascal/VOC/voc2007/VOCtest_06-Nov-2007.tar"
+tar -vxf VOCtest_06-Nov-2007.tar
+cd VOCdevkit/VOC2007/JPEGImages/
+# make dataset smaller
+rm 00{2..9}*.jpg
+
+```
+
 # Results
 ## CPU
 | Model | Size | Intel<br>i5-8265U | Intel<br>i5-8400 |
