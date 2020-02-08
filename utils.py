@@ -21,10 +21,7 @@ def draw(frame, classes, classId, conf, left, top, right, bottom):
 
 
 def draw_all(results, model):
-    if model == 'yolo':
-        from names import coco_names as classes
-    else:
-        from names import voc_names as classes
+    from names import names as classes
     for frame, boxes in results:
         for box in boxes:
             draw(frame, classes, *box)

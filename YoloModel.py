@@ -20,7 +20,7 @@ class YoloModel(Model):
         self.nmsThreshold = 0.4
 
         assert size in [
-            320, 416, 608], f'Net size {size} not in [320, 416, 608]'
+            512], f'Net size {size} not in [512]'
         assert Path(config_path).is_file() and Path(
             weights_path).is_file(), 'Not find config or weights file'
 
@@ -41,6 +41,9 @@ class YoloModel(Model):
             return [layersNames[i[0] - 1] for i in net.getUnconnectedOutLayers()]
 
         self.outputs = getOutputsNames(self.net)
+
+    def get_GFLOPS(self):
+        return self.net.getFLOPS((1,3,512,512))*1e-9
 
     def preprocess(self, frames):
         return frames

@@ -25,6 +25,10 @@ class Model(ABC):
     def postprocess(self):
         pass
 
+    @abstractmethod
+    def get_GFLOPS(self):
+        pass
+
     def get_total_FPS(self):
         return self.count/(self.preprocess_time+self.inference_time+self.postprocess_time)
 

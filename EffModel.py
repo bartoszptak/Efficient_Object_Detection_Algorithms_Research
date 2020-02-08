@@ -14,7 +14,7 @@ class EffModel(Model):
     def __init__(self,
                  engine,
                  size=640,
-                 num_classes=20):
+                 num_classes=4):
         super().__init__()
 
         self.size = size
@@ -22,7 +22,7 @@ class EffModel(Model):
         self.num_classes = num_classes
 
         assert size in [
-            512, 640], f'Net size {size} not in [512, 640]'
+            512], f'Net size {size} not in [512]'
 
         def setPreferableEngine(engine):
             if engine == 'gpu':
@@ -36,14 +36,10 @@ class EffModel(Model):
 
         from EfficientDet.model import efficientdet
 
-        if size == 512:
-            phi = 0
-            weighted_bifpn = True
-            model_path = 'models/EfficientDet/EfficientDet-d0/EfficientDet-d0.weights'
-        else:
-            phi = 1
-            weighted_bifpn = False
-            model_path = 'models/EfficientDet/EfficientDet-d1/EfficientDet-d1.weights'
+        phi = 0
+        weighted_bifpn = False
+        model_path = 'models/EfficientDet/EfficientDet-d0/EfficientDet-d0.weights'
+
 
         assert Path(model_path).is_file(), 'Not find model file'
 
@@ -52,6 +48,17 @@ class EffModel(Model):
                                    num_classes=self.num_classes,
                                    score_threshold=self.score_threshold)
         self.net.load_weights(model_path, by_name=True)
+
+    def get_GFLOPS(self):
+        import tensorflow.keras.backend as K
+        import tensorflow as tf
+
+        tf.logging.set_verbosity(tf.logging.ERROR)
+
+        graph = K.get_session().graph
+        flops = tf.profiler.profile(graph, options=tf.profiler.ProfileOptionBuilder.float_operation())
+
+        return flops.total_float_ops*1e-9
 
     def preprocess(self, frames):
         inputs, anchors, meta = [], [], []
