@@ -41,10 +41,10 @@ rm 00{2..9}*.jpg
 ```
 
 # Training results
-| Model         | Size |    GFLOPS    | mAP |
-|---------------|:----:|:------------:|:---:|
-| YOLOv3        |  512 |     99.42    |     |
-| EffficientDet |  512 | 2.5<br>(from pdf) |     |
+| Model         | Size |    GFLOPS    | mAP | Train time |
+|---------------|:----:|:------------:|:---:|:--------:|
+| YOLOv3        |  512 |     99.42    |     |             |
+| EffficientDet |  512 | 2.5<br>(from pdf) |  0.8870   |  23:12:18  |
 
 # Benchmark results
 | Device | Total time<br>batch=1 | Total time<br>batch=2 | Inference time<br>batch=1 | Inference time<br>batch=2 |
