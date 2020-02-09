@@ -40,6 +40,12 @@ rm 00{2..9}*.jpg
 
 ```
 
+# Experiment config
+* select only 4 classes ([this script](https://gist.github.com/076d842f825e05172bed712670ae5433.git)): bicycle, bus, car, person
+* set fixed image size to 512x512
+* trained with default other parameters
+* trained on NVIDIA V100
+
 # Training results
 | Model         | Size |    GFLOPS    | mAP | Train time |
 |---------------|:----:|:------------:|:---:|:--------:|
