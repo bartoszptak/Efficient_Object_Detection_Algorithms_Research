@@ -44,7 +44,7 @@ def main(mode, model, engine, batch_size):
         from tqdm import tqdm
         imgs = glob('data/VOCdevkit/VOC2007/JPEGImages/*.jpg')
 
-        for i in tqdm(range(0,1,batch_size)):
+        for i in tqdm(range(0,len(imgs),batch_size)):
             ims = [cv2.imread(im) for im in imgs[i:i+batch_size]]
             res = net.predict(ims)
 

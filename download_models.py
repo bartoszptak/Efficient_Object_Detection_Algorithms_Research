@@ -38,25 +38,18 @@ def download_file_from_link(link:str, destination:str) -> None:
     open(destination, 'wb').write(r.content)
 
 def main() -> None:
-    print('[LOGS] Download YoloV3')
+    print('[LOGS] Download YoloV3-4classes')
     # download YoloV3 from darknet
-    download_file_from_link(
-        'https://pjreddie.com/media/files/yolov3.weights',
+    download_file_from_google_drive(
+        '1eWkLwTY_WnC5g55gjwdhy4HARKwNsUgT',
         'models/YOLOv3/YOLOv3.weights'
     )
 
-    print('[LOGS] Download EfficientDet-d0')
+    print('[LOGS] Download EfficientDet-d0-4classes')
     # download from darknet
     download_file_from_google_drive(
-        '1mrqL9rFoYW-4Jc57MsTipkvOTRy_EGfe',
+        '1UWr5Nbamtnnu7i-RYWEC8S10GhhGpxEl',
         'models/EfficientDet/EfficientDet-d0/EfficientDet-d0.weights'
-    )
-
-    print('[LOGS] Download EfficientDet-d1')
-    # download from darknet
-    download_file_from_google_drive(
-        '1-QkMq56w4dZOTQUnbitF53NKEiNF9F_Q',
-        'models/EfficientDet/EfficientDet-d1/EfficientDet-d1.weights'
     )
 
 if __name__ == "__main__":
