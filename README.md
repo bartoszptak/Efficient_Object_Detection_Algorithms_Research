@@ -43,7 +43,7 @@ rm 00{2..9}*.jpg
 # Training results
 | Model         | Size |    GFLOPS    | mAP | Train time |
 |---------------|:----:|:------------:|:---:|:--------:|
-| YOLOv3        |  512 |     99.42    |     |             |
+| YOLOv3        |  512 |     99.42    |     | 1-05:32:00 |
 | EffficientDet |  512 | 2.5<br>(from pdf) |  0.8870   |  23:12:18  |
 
 # Benchmark results
