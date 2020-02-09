@@ -47,7 +47,7 @@ rm 00{2..9}*.jpg
 * trained on NVIDIA V100
 
 # Training results
-| Model         | Size |    GFLOPS    | mAP | Train time |
+| Model         | Size |    GFLOPS    | mAP@0.5 | Train time |
 |---------------|:----:|:------------:|:---:|:--------:|
 | YOLOv3        |  512 |     99.42    |  0.8661  | 1-05:32:00 |
 | EffficientDet |  512 | 2.5<br>(from pdf) |  0.8870   |  23:12:18  |
