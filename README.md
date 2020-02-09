@@ -47,8 +47,16 @@ rm 00{2..9}*.jpg
 | EffficientDet |  512 | 2.5<br>(from pdf) |  0.8870   |  23:12:18  |
 
 # Benchmark results
-| Device | Total time<br>batch=1 | Total time<br>batch=2 | Inference time<br>batch=1 | Inference time<br>batch=2 |
+### EffficientDet
+| Device | Total FPS<br>batch=1 | Total FPS<br>batch=2 | Inference FPS<br>batch=1 | Inference FPS<br>batch=2 |
 |----------------------|:---------------------:|:---------------------:|:-------------------------:|:-------------------------:|
 | NVIDIA<br>MX230 |  |  |  |  |
-| NVIDIA<br>GTX1060 |  |  |  |  |
+| NVIDIA<br>GTX1060 | 15.07 | 17.77 | 34.43 | 42.05 |
+| NVIDIA<br>Jetson TX2 |  |  |  |  |
+
+### YOLOv3
+| Device | Total FPS<br>batch=1 | Total FPS<br>batch=2 | Inference FPS<br>batch=1 | Inference FPS<br>batch=2 |
+|----------------------|:---------------------:|:---------------------:|:-------------------------:|:-------------------------:|
+| NVIDIA<br>MX230 |  |  |  |  |
+| NVIDIA<br>GTX1060 | 11.36 | 11.43 | 27.99 | 29.88 |
 | NVIDIA<br>Jetson TX2 |  |  |  |  |
